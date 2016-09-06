@@ -1,0 +1,8 @@
+{
+  "ignore": [
+    "foo.js",
+    "bar/**/*.js"
+  ],
+  "sourceMaps" : false,
+  "presets" : [ "es2015", "stage-0"]
+}
