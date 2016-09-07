@@ -1,25 +1,44 @@
-<h1>Catfabulous Election</h1>
+<main class="catastic">
+    <h1>Catastic Election</h1>
+    <section id="votingBooth" class="catatsic_voting-booth">
+        <div class="catastic_row">
+            <div class="catastic_column">
+                <div class="catastic_image-wrapper">
+                    <img id="candidate01Pic" class="catastic_cat-pic"/>
+                </div>
+            </div>
+            <div class="catastic_column">
+                <div class="catastic_image-wrapper">
 
+                    <img id="candidate02Pic" class="catastic_cat-pic"/>
+                </div>
+            </div>
+        </div>
+        <div class="catastic_row">
+            <div class="catastic_column">
+                <article class="catastic_candidate" id="candidate01">
 
-<section id="votingBooth" class="voting-booth">
-    <article id="champ">
-        <img id="champ-pic"/>
-        <p>Name : <span  id="champ-name"></span></p>
-        <p>Coffee Preference:<span id="champ-coffee-preference"/></p>
-        <button id="champ-vote">Vote</button>
-    </article>
-    <article id="challenger">
-        <img id="challenger-pic"/>
-        <p>Name : <span  id="challenger-name"></span></p>
-        <p>Coffee Preference:<span id="challenger-coffee-preference"/></p>
-        <button id="challenger-vote">Vote</button>
-    </article>
-</section>
-<section class="election-results">
-    <article id="electionResults">
+                    <p>Name : <span id="candidate01Name"></span></p>
+                    <p>Coffee Preference:<span id="candidate01CoffeePreference"></span></p>
+                    <p>Vote Count : <span id="candidate01Votes"></span></p>
 
-    </article>
-    <button id="newElection">New Election</button>
-</section>
+                    <button class="catastic_vote-button" id="candidate01VoteButton">Vote</button>
+                </article>
+            </div>
+            <div class="catastic_column">
+                <article class="catastic_candidate" id="candidate02">
+                    <p>Name : <span id="candidate02Name"></span></p>
+                    <p>Coffee Preference:<span id="candidate02CoffeePreference"></span></p>
+                    <p>Vote Count : <span id="candidate02Votes"></span></p>
+                    <button class="catastic_vote-button" id="candidate02VoteButton">Vote</button>
+                </article>
+            </div>
+        </div>
+    </section>
+    <section class="election-results">
+        <article id="electionResults"></article>
+        <button id="newElectionButon">New Election</button>
+    </section>
+</main>
 <script src="/javascripts/jquery-3.1.0.min.js"></script>
-<script src="/javascripts/catfabulous.js"></script>a
+<script src="/javascripts/catfabulous.js"></script>

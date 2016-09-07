@@ -6,7 +6,7 @@ var cats = [
         id: 1,
         name: "Persian",
         coffeePreference: "Turkish Coffee with lemon",
-        filename: "calico.jpg",
+        filename: "persian.jpg",
         votes: 0
     },
     {
@@ -113,14 +113,13 @@ router.put('/cats/:id', function (req, res, next) {
     }
 
 
-    var newCat = Object.keys(cat).reduce(function (newCat, key) {
+     newCat = Object.keys(cat).reduce(function (newCat, key) {
         newCat[key] = updatedCat[key];
         return newCat;
     }, {});
 
     newCat.id = id;
     newCat.votes = isNaN(parseInt(newCat.votes)) ? 0 : parseInt(newCat.votes);
-    console.log(JSON.stringify(newCat));
     cats[catIndex] = newCat;
     res.status(202).json();
 
