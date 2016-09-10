@@ -1,47 +1,41 @@
 var express = require('express');
 var router = express.Router();
-var cat = {name: "", coffeePreference: "", filename: "", votes: 0};
+var cat = {name: "", coffeePreference: "", filename: "", eliminated: false};
 var cats = [
     {
         id: 1,
         name: "Persian",
         coffeePreference: "Turkish Coffee with lemon",
-        filename: "persian.jpg",
-        votes: 0
+        filename: "persian.jpg"
     },
     {
         id: 2,
         name: "Calico",
         coffeePreference: "Light roast, cream & sugar",
-        filename: "calico.jpg",
-        votes: 0
+        filename: "calico.jpg"
     },
     {
         id: 3,
         name: "Siamese",
         coffeePreference: "Medium Roast, black",
-        filename: "siamese.jpg",
-        votes: 0
+        filename: "siamese.jpg"
 
     },
     {
         id: 4,
         name: "American Shorthair",
         coffeePreference: "Soy Cappuccino",
-        filename: "american-shorthair.jpg",
-        votes: 0
+        filename: "american-shorthair.jpg"
     }, {
         id: 5,
         name: "Pixie-bob",
         coffeePreference: "Espresso Shot",
-        filename: "pixie-bob.jpg",
-        votes: 0
+        filename: "pixie-bob.jpg"
     }, {
         id: 6,
         name: "Maine Coon",
         coffeePreference: "Extra-Large Americano",
-        filename: "maine-coon.jpg",
-        votes: 0
+        filename: "maine-coon.jpg"
     }
 ];
 
