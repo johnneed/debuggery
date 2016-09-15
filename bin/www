@@ -20,7 +20,7 @@ app.set('port', port);
 /**
 * connect to DB
 */
-mongoose.connect('mongodb://localhost:27017/vtcc2016'); // connect to our database
+// mongoose.connect('mongodb://localhost:27017/vtcc2016'); // connect to our database
 
 
 /**
