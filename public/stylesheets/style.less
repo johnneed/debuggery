@@ -7,36 +7,89 @@ a {
   color: #00B7FF;
 }
 
-.catastic {
-  .catastic_row{
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    justify-content: flex-start;
-    align-content: stretch;
-    align-items: flex-start;
-    text-align:center;
+.flex-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  align-content: stretch;
+  align-items: flex-start;
+  button {
+    display: block;
+    margin: .5em auto;
+    font-size: 1.5em;
+    border-radius: 0;
+    padding: .5em;
+    border: solid 2px #555;
+    transition: background 0.5s;
+    cursor: pointer;
+    box-shadow: 0px 5px 5px -4px rgba(0, 0, 0, 0.55);
+    &:hover {
+      background: #AAA;
+    }
   }
+  &:nth-child(2) {
+    margin-top: 2.4em;
 
-
-  .catastic_column {
-    order: 0;
-    flex: 1 1 50%;
-    align-self: stretch;
   }
+}
 
-  .catastic_image-wrapper{height: 100%;}
-  .catastic_image{
-    height: 20em;
-    overflow :hidden;
-  }
-  .catastic_cat-pic {
-    border: solid 1px;
-    margin: 0;
-    max-width: 80%;
-    margin-top: 50%;
-    transform: translateY(-50%);
-    display:inline-block;
-  }
+.flex-item:nth-child(1) {
+  order: 0;
+  flex: 1 1 auto;
+  align-self: stretch;
+}
 
+.flex-item:nth-child(2) {
+  order: 0;
+  flex: 1 1 auto;
+  align-self: stretch;
+}
+
+.catastic_image-wrapper {
+  text-align: center;
+}
+
+.catastic_cat-pic {
+  border: solid 1px;
+  margin: 0 auto;
+  display: inline-block;
+  box-shadow: -1px 27px 47px -21px rgba(0, 0, 0, 0.75);
+}
+
+article {
+  padding: 1em;
+  box-sizing: border-box;
+}
+
+p {
+  text-align: center;
+  font-size: 2em;
+  color: #888;
+
+  span {
+    color: #222;
+  }
+}
+
+.election-results {
+  text-align: center;
+  button {
+    display: block;
+    margin: .5em auto;
+    font-size: 1.5em;
+    border-radius: 0;
+    padding: .5em;
+    border: solid 2px #555;
+    transition: background 0.5s;
+    cursor: pointer;
+    box-shadow: 0px 5px 5px -4px rgba(0, 0, 0, 0.55);
+    &:hover {
+      background: #AAA;
+    }
+  }
+}
+
+.is-hidden {
+  display: none;
 }

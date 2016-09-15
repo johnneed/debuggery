@@ -14,7 +14,7 @@
     var candidate02VoteButton = $("#candidate02VoteButton");
     var electionResults = $("#electionResults");
     var newElectionButton = $("#newElectionButton");
-
+    var winnerWinnerChickenDinner = $("#winnerWinnerChickenDinner");
 
     function calculateByes(numTeams, n = 0) {
         var minuend = Math.pow(2, n);
@@ -42,7 +42,6 @@
     function startVote(generator, contestants) {
         var catContest = generator.next();
 
-
         function eliminationFunction(looserId) {
             return contestants.map(contestant=> {
                 if (looserId === contestant.id) {
@@ -62,8 +61,8 @@
         if (catContest.done) {
             return startVoteRound(contestants);
         }
-        candidate01Pic.attr('src', `/images/${catContest.value.candidate1.contestant.filename}`);
-        candidate02Pic.attr('src', `/images/${catContest.value.candidate2.contestant.filename}`);
+        candidate01Pic.attr("src", `/images/${catContest.value.candidate1.contestant.filename}`);
+        candidate02Pic.attr("src", `/images/${catContest.value.candidate2.contestant.filename}`);
         candidate01Name.html(catContest.value.candidate1.contestant.name);
         candidate02Name.html(catContest.value.candidate2.contestant.name);
         candidate01CoffeePreference.html(catContest.value.candidate1.contestant.coffeePreference);
@@ -72,11 +71,13 @@
         candidate02VoteButton.off("click");
         candidate01VoteButton.click(nextVote.bind(null, eliminationFunction.bind(null, catContest.value.candidate2.id)));
         candidate02VoteButton.click(nextVote.bind(null, eliminationFunction.bind(null, catContest.value.candidate1.id)));
-
+        electionResults.click(restart);
     }
 
     function announceWinner(winner) {
-        alert(winner.name);
+        electionResults.className =  electionResults.removeClass("is-hidden");
+        winnerWinnerChickenDinner.attr("src", `/images/${winner.filename}`);
+        votingBooth.addClass("is-hidden");
     }
 
     function startVoteRound(contestants, byes = 0) {
@@ -91,6 +92,7 @@
         bGenerator = bracketGenerator(winners, byes);
 
         startVote(bGenerator, winners);
+        return void 0;
     }
 
 
@@ -102,13 +104,30 @@
         }));
     }
 
-    $.get('/api/cats').done(function (data) {
-        var numByes = calculateByes(data.cats.length);
-        var modifiedData = addBracketMetaData(data.cats);
-        startVoteRound(modifiedData, numByes);
-    }).catch(function (err) {
-        // We Failed :-(
-    });
+
+    function restart(){
+        // var rand = Math.random();
+        // if(rand < .2) {
+        //     throw new Error("oops");
+        // }
+        electionResults.className =  electionResults.addClass("is-hidden");
+        votingBooth.removeClass("is-hidden");
+        start();
+    }
+
+
+    function start() {
+        $.get("/api/cats").done(function (data) {
+            var numByes = calculateByes(data.cats.length);
+            var modifiedData = addBracketMetaData(data.cats);
+            startVoteRound(modifiedData, numByes);
+        }).catch(function (err) {
+            // We Failed :-(
+        });
+        return void 0;
+    }
+
+    start();
 
 }(jQuery));
 

@@ -1,41 +1,40 @@
 <main class="catastic">
-    <h1>Catastic Election</h1>
+    <h1>Catastic Brackets</h1>
     <section id="votingBooth" class="catatsic_voting-booth">
-        <div class="catastic_row">
-            <div class="catastic_column">
+
+        <div class="flex-container">
+
+            <div class="flex-item catastic_column">
                 <div class="catastic_image-wrapper">
                     <img id="candidate01Pic" class="catastic_cat-pic"/>
                 </div>
             </div>
-            <div class="catastic_column">
+            <div class="flex-item catastic_column">
                 <div class="catastic_image-wrapper">
-
                     <img id="candidate02Pic" class="catastic_cat-pic"/>
                 </div>
             </div>
+
         </div>
 
-        <div class="catastic_row">
-            <div class="catastic_column">
-                <article class="catastic_candidate" id="candidate01">
+        <div class="flex-container">
+            <article class="flex-item catastic_candidate" id="candidate01">
+                <p>Name:&nbsp;<span id="candidate01Name"></span></p>
+                <p>Coffee Preference:&nbsp;<span id="candidate01CoffeePreference"></span></p>
+                <button class="catastic_vote-button" id="candidate01VoteButton">Vote</button>
+            </article>
 
-                    <p>Name : <span id="candidate01Name"></span></p>
-                    <p>Coffee Preference:<span id="candidate01CoffeePreference"></span></p>
-                    <button class="catastic_vote-button" id="candidate01VoteButton">Vote</button>
-                </article>
-            </div>
-            <div class="catastic_column">
-                <article class="catastic_candidate" id="candidate02">
-                    <p>Name : <span id="candidate02Name"></span></p>
-                    <p>Coffee Preference:<span id="candidate02CoffeePreference"></span></p>
-                     <button class="catastic_vote-button" id="candidate02VoteButton">Vote</button>
-                </article>
-            </div>
+
+            <article class="flex-item catastic_candidate" id="candidate02">
+                <p>Name:&nbsp;<span id="candidate02Name"></span></p>
+                <p>Coffee Preference:&nbsp;<span id="candidate02CoffeePreference"></span></p>
+                <button class="catastic_vote-button" id="candidate02VoteButton">Vote</button>
+            </article>
         </div>
     </section>
-    <section class="election-results">
-        <article id="electionResults"></article>
-        <button id="newElectionButon">New Election</button>
+    <section id="electionResults" class="election-results is-hidden">
+        <img src="" id="winnerWinnerChickenDinner" alt="winner"/>
+        <button id="newElectionButton">New Election</button>
     </section>
 </main>
 <script src="/javascripts/jquery-3.1.0.min.js"></script>
