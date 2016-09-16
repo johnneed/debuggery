@@ -84,6 +84,7 @@
     }
 
     function startVoteRound(contestants, byes = 0) {
+       // debugger;
         var winners = contestants.filter(contestant => !contestant.eliminated);
         var bGenerator;
 
@@ -91,7 +92,7 @@
             return announceWinner(winners[0].contestant);
         }
 
-        console.log(winners.length);
+        console.info(`We have ${winners.length} cats left in the competition`);
         bGenerator = bracketGenerator(winners, byes);
 
         startVote(bGenerator, winners);
