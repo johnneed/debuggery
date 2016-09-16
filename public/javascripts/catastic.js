@@ -52,10 +52,14 @@
         }
 
         function nextVote(eliminateFunc) {
-            // var rand = Math.random();
-            // if (rand < .2) {
-            //     throw new Error("oops");
-            // }
+             var rand = Math.random();
+             if (rand < .3) {
+                 try {
+                     throw new Error("rand was way to small!!!!!!");
+                 }catch(err){
+                     logError(err);
+                 }
+             }
             var winnersAndLosers = eliminateFunc();
             startVote(generator, winnersAndLosers);
             return null;
