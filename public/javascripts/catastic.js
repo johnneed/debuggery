@@ -33,7 +33,6 @@
 
         shuffledTeams = shuffle(teams);
 
-
         for (let i = 0, len = shuffledTeams.length - byes; i < len; i += 2) {
             yield {candidate1: shuffledTeams[i], candidate2: shuffledTeams[i + 1]};
         }
@@ -84,11 +83,11 @@
     }
 
     function startVoteRound(contestants, byes = 0) {
-      //   try {
-        //    throw new Error("Muhahahahahaha!!!!");
-        //} catch (err) {
-        //    logError(err);
-      //  }
+         try {
+            throw new Error("Muhahahahahaha!!!!");
+       } catch (err) {
+            logError(err);
+       }
         var winners = contestants.filter(contestant => !contestant.eliminated);
         var bGenerator;
 
@@ -125,7 +124,7 @@
         //debugger;
         console.log("oh nos! there was an error!");
         console.log(err.message);
-        // window.location=`https://www.google.com/#q=%22${err.statusText.replace(" ","+")}%22`
+       //window.location=`https://www.google.com/#q=%22${(err.message || err.statusText).replace(" ","+")}%22`
     }
 
     function start() {
