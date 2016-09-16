@@ -52,7 +52,10 @@
         }
 
         function nextVote(eliminateFunc) {
-
+            // var rand = Math.random();
+            // if (rand < 20) {
+            //     throw new Error("oops");
+            // }
             var winnersAndLosers = eliminateFunc();
             startVote(generator, winnersAndLosers);
             return null;
@@ -75,7 +78,7 @@
     }
 
     function announceWinner(winner) {
-        electionResults.className =  electionResults.removeClass("is-hidden");
+        electionResults.className = electionResults.removeClass("is-hidden");
         winnerWinnerChickenDinner.attr("src", `/images/${winner.filename}`);
         votingBooth.addClass("is-hidden");
     }
@@ -105,16 +108,19 @@
     }
 
 
-    function restart(){
-        // var rand = Math.random();
-        // if(rand < .2) {
-        //     throw new Error("oops");
-        // }
-        electionResults.className =  electionResults.addClass("is-hidden");
+    function restart() {
+
+        electionResults.className = electionResults.addClass("is-hidden");
         votingBooth.removeClass("is-hidden");
         start();
     }
 
+
+    function logError(err){
+        console.log("oh nos! there was an error!");
+        console.log(err.message);
+       // window.location=`https://www.google.com/#q=%22${err.statusText.replace(" ","+")}%22`
+    }
 
     function start() {
         $.get("/api/cats").done(function (data) {
@@ -122,7 +128,7 @@
             var modifiedData = addBracketMetaData(data.cats);
             startVoteRound(modifiedData, numByes);
         }).catch(function (err) {
-            // We Failed :-(
+           logError(err);
         });
         return void 0;
     }

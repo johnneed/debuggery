@@ -3,36 +3,30 @@ var router = express.Router();
 var cat = {name: "", coffeePreference: "", filename: "", eliminated: false};
 var cats = [
     {
-        id: 1,
         name: "Persian",
         coffeePreference: "Turkish Coffee with lemon",
         filename: "persian.jpg"
     },
     {
-        id: 2,
         name: "Calico",
         coffeePreference: "Light roast, cream & sugar",
         filename: "calico.jpg"
     },
     {
-        id: 3,
         name: "Siamese",
         coffeePreference: "Medium Roast, black",
         filename: "siamese.jpg"
 
     },
     {
-        id: 4,
         name: "American Shorthair",
         coffeePreference: "Soy Cappuccino",
         filename: "american-shorthair.jpg"
     }, {
-        id: 5,
         name: "Pixie-bob",
         coffeePreference: "Espresso Shot",
         filename: "pixie-bob.jpg"
     }, {
-        id: 6,
         name: "Maine Coon",
         coffeePreference: "Extra-Large Americano",
         filename: "maine-coon.jpg"
@@ -107,7 +101,7 @@ router.put('/cats/:id', function (req, res, next) {
     }
 
 
-     newCat = Object.keys(cat).reduce(function (newCat, key) {
+    newCat = Object.keys(cat).reduce(function (newCat, key) {
         newCat[key] = updatedCat[key];
         return newCat;
     }, {});
