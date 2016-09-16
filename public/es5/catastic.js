@@ -155,7 +155,7 @@
     }
 
     function logError(err) {
-        debugger;
+        //debugger;
         console.log("oh nos! there was an error!");
         console.log(err.message);
         // window.location=`https://www.google.com/#q=%22${err.statusText.replace(" ","+")}%22`
