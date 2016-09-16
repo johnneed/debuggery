@@ -53,7 +53,7 @@
 
         function nextVote(eliminateFunc) {
             // var rand = Math.random();
-            // if (rand < 20) {
+            // if (rand < .2) {
             //     throw new Error("oops");
             // }
             var winnersAndLosers = eliminateFunc();
@@ -84,7 +84,11 @@
     }
 
     function startVoteRound(contestants, byes = 0) {
-       // debugger;
+         try {
+            throw new Error("Muhahahahahaha!!!!");
+        } catch (err) {
+            logError(err);
+        }
         var winners = contestants.filter(contestant => !contestant.eliminated);
         var bGenerator;
 
@@ -117,10 +121,11 @@
     }
 
 
-    function logError(err){
+    function logError(err) {
+        //debugger;
         console.log("oh nos! there was an error!");
         console.log(err.message);
-       // window.location=`https://www.google.com/#q=%22${err.statusText.replace(" ","+")}%22`
+        // window.location=`https://www.google.com/#q=%22${err.statusText.replace(" ","+")}%22`
     }
 
     function start() {
@@ -129,7 +134,7 @@
             var modifiedData = addBracketMetaData(data.cats);
             startVoteRound(modifiedData, numByes);
         }).catch(function (err) {
-           logError(err);
+            logError(err);
         });
         return void 0;
     }

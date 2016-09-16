@@ -4,7 +4,8 @@
   "private": true,
   "scripts": {
     "start": "node ./bin/www",
-    "build": "babel public/javascripts -d public/es5"
+    "build": "babel public/javascripts -d public/es5",
+    "pack" : "webpack public/es5/factorial.js"
   },
   "dependencies": {
     "body-parser": "~1.15.1",

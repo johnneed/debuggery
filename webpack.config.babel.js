@@ -1,14 +1,13 @@
 import webpack from 'webpack';
 
-const optimizeMinimize = false;
-const nodeEnv = optimizeMinimize ? 'production' : 'development';
+ const nodeEnv = 'development';
 
 export default {
     entry: "./public/es5/factorial.js",
 
     output: {
         path: './public/es5',
-        filename: optimizeMinimize ? 'factorial.min.js' : 'factorial-debug.js',
+        filename: 'factorial-debug.js',
     },
 
     module: {
@@ -25,5 +24,5 @@ export default {
         }),
     ],
 
-    devtool: optimizeMinimize ? 'source-map' : 'source-map',
+    devtool: 'source-map',
 };

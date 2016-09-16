@@ -19,17 +19,24 @@
 
         <div class="flex-container">
             <article class="flex-item catastic_candidate" id="candidate01">
-                <p>Name:&nbsp;<span id="candidate01Name"></span></p>
-                <p>Coffee Preference:&nbsp;<span id="candidate01CoffeePreference"></span></p>
-                <button class="catastic_vote-button" id="candidate01VoteButton">Vote</button>
+                <p>Name</br><span id="candidate01Name"></span></p>
+                <p>Coffee Preference<br/><span id="candidate01CoffeePreference"></span></p>
             </article>
 
 
             <article class="flex-item catastic_candidate" id="candidate02">
-                <p>Name:&nbsp;<span id="candidate02Name"></span></p>
-                <p>Coffee Preference:&nbsp;<span id="candidate02CoffeePreference"></span></p>
-                <button class="catastic_vote-button" id="candidate02VoteButton">Vote</button>
+                <p>Name<br/><span id="candidate02Name"></span></p>
+                <p>Coffee Preference<br/><span id="candidate02CoffeePreference"></span></p>
             </article>
+        </div>
+        <div class="flex-container">
+            <div class="flex-item">
+                <button class="catastic_vote-button" id="candidate01VoteButton">Vote</button>
+
+            </div>
+            <div class="flex-item">
+                <button class="catastic_vote-button" id="candidate02VoteButton">Vote</button>
+            </div>
         </div>
     </section>
     <section id="electionResults" class="election-results is-hidden">
@@ -37,5 +44,6 @@
         <button id="newElectionButton">New Election</button>
     </section>
 </main>
+<script src="/javascripts/asserts.js"></script>
 <script src="/javascripts/jquery-3.1.0.min.js"></script>
 <script src="/javascripts/catastic.js"></script>

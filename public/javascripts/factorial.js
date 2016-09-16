@@ -1,6 +1,7 @@
  import "babel-polyfill";
 (function () {
     "use strict";
+    // THIS IS HERE TO BE FOUND
     //find our controls
     var inputBox = document.getElementById("factorialLimit");
     var goButton = document.getElementById("goFigure");

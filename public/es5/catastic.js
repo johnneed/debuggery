@@ -82,7 +82,10 @@
         }
 
         function nextVote(eliminateFunc) {
-
+            // var rand = Math.random();
+            // if (rand < .2) {
+            //     throw new Error("oops");
+            // }
             var winnersAndLosers = eliminateFunc();
             startVote(generator, winnersAndLosers);
             return null;
@@ -113,6 +116,11 @@
     function startVoteRound(contestants) {
         var byes = arguments.length <= 1 || arguments[1] === undefined ? 0 : arguments[1];
 
+        try {
+            throw new Error("Muhahahahahaha!!!!");
+        } catch (err) {
+            logError(err);
+        }
         var winners = contestants.filter(function (contestant) {
             return !contestant.eliminated;
         });
@@ -122,7 +130,7 @@
             return announceWinner(winners[0].contestant);
         }
 
-        console.log(winners.length);
+        console.info("We have " + winners.length + " cats left in the competition");
         bGenerator = bracketGenerator(winners, byes);
 
         startVote(bGenerator, winners);
@@ -140,13 +148,17 @@
     }
 
     function restart() {
-        // var rand = Math.random();
-        // if(rand < .2) {
-        //     throw new Error("oops");
-        // }
+
         electionResults.className = electionResults.addClass("is-hidden");
         votingBooth.removeClass("is-hidden");
         start();
+    }
+
+    function logError(err) {
+        debugger;
+        console.log("oh nos! there was an error!");
+        console.log(err.message);
+        // window.location=`https://www.google.com/#q=%22${err.statusText.replace(" ","+")}%22`
     }
 
     function start() {
@@ -155,7 +167,7 @@
             var modifiedData = addBracketMetaData(data.cats);
             startVoteRound(modifiedData, numByes);
         }).catch(function (err) {
-            // We Failed :-(
+            logError(err);
         });
         return void 0;
     }
