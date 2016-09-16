@@ -33,7 +33,6 @@
 
         shuffledTeams = shuffle(teams);
 
-
         for (let i = 0, len = shuffledTeams.length - byes; i < len; i += 2) {
             yield {candidate1: shuffledTeams[i], candidate2: shuffledTeams[i + 1]};
         }
@@ -78,7 +77,7 @@
         candidate02VoteButton.off("click");
         candidate01VoteButton.click(nextVote.bind(null, eliminationFunction.bind(null, catContest.value.candidate2.id)));
         candidate02VoteButton.click(nextVote.bind(null, eliminationFunction.bind(null, catContest.value.candidate1.id)));
-        electionResults.click(restart);
+
     }
 
     function announceWinner(winner) {
@@ -90,9 +89,9 @@
     function startVoteRound(contestants, byes = 0) {
          try {
             throw new Error("Muhahahahahaha!!!!");
-        } catch (err) {
+       } catch (err) {
             logError(err);
-        }
+       }
         var winners = contestants.filter(contestant => !contestant.eliminated);
         var bGenerator;
 
@@ -129,7 +128,7 @@
         //debugger;
         console.log("oh nos! there was an error!");
         console.log(err.message);
-        // window.location=`https://www.google.com/#q=%22${err.statusText.replace(" ","+")}%22`
+       //window.location=`https://www.google.com/#q=%22${(err.message || err.statusText).replace(" ","+")}%22`
     }
 
     function start() {
@@ -142,8 +141,7 @@
         });
         return void 0;
     }
-
+    electionResults.click(restart);
     start();
 
 }(jQuery));
-
